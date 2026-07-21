@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0f172a" />
+    <meta name="theme-color" content="#006a44" />
     <meta
       name="description"
       content="AlphaCompanion — calculez votre coût moyen pondéré (CMP), suivez votre patrimoine et consultez vos rapports BRVM. Essai gratuit 7 jours."
@@ -13,75 +13,197 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="entete">
+    <!-- Icônes SVG maison (pas de police d'icônes externe) -->
+    <svg style="display: none">
+      <symbol id="icone-wallet" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" /><path d="M16 12h.01" /><path d="M3 9h18" /></symbol>
+      <symbol id="icone-verified" viewBox="0 0 24 24"><path d="m9 12 2 2 4-4" /><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3Z" /></symbol>
+      <symbol id="icone-shield" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3Z" /></symbol>
+      <symbol id="icone-calc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" /><path d="M8 7h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h.01" /></symbol>
+      <symbol id="icone-pie" viewBox="0 0 24 24"><path d="M21.2 15a9 9 0 1 1-9.2-13v9.2Z" /><path d="M17 3.3a9 9 0 0 1 4.3 4.3H12l5-4.3Z" /></symbol>
+      <symbol id="icone-doc" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" /><path d="M14 2v6h6" /><path d="M9 13h6M9 17h6" /></symbol>
+      <symbol id="icone-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /></symbol>
+      <symbol id="icone-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="m8.5 12 2.3 2.3L15.5 9.6" /></symbol>
+      <symbol id="icone-trending" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8" /><path d="M15 7h6v6" /></symbol>
+      <symbol id="icone-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7" /><path d="M3 4v5h5" /><path d="M12 7v5l3 3" /></symbol>
+      <symbol id="icone-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3" /><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5" /><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" /></symbol>
+      <symbol id="icone-coins" viewBox="0 0 24 24"><circle cx="8" cy="8" r="5" /><path d="M13.5 12A5 5 0 1 1 12 4.5" /></symbol>
+    </svg>
+
+    <header class="entete verre" id="entete">
       <div class="conteneur">
-        <span class="logo">AlphaCompanion</span>
-        <a class="bouton bouton--secondaire" href="#tarifs">Tarifs</a>
+        <div class="marque">
+          <span class="marque-pastille"><svg class="icone"><use href="#icone-wallet" /></svg></span>
+          <span class="marque-texte">AlphaCompanion</span>
+        </div>
+        <nav class="nav-liens">
+          <a href="#fonctionnalites">Fonctionnalités</a>
+          <a href="#tarifs">Tarifs</a>
+        </nav>
+        <a class="clay-bouton" href="#tarifs" style="text-decoration: none; display: inline-flex; align-items: center;">Commencer</a>
       </div>
     </header>
 
     <main>
       <section class="hero">
         <div class="conteneur">
-          <h1>Le compagnon d'investissement pour la BRVM</h1>
-          <p>
-            Calculez votre coût moyen pondéré en un instant, suivez votre patrimoine, et gardez une trace
-            de vos rapports MBRVM — le tout hors-ligne, sur votre appareil. Aucune donnée ne quitte jamais
-            votre machine.
-          </p>
-          <div class="hero-cta">
-            <a class="bouton bouton--primaire" href="#tarifs">Commencer l'essai gratuit</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="conteneur">
-        <div class="fonctionnalites">
-          <div class="carte">
-            <h3>Companion CMP</h3>
-            <p>4 modes de calcul (A à D), profils de frais et TVA inclus, jusqu'à 5 simulations sauvegardées.</p>
-          </div>
-          <div class="carte">
-            <h3>Patrimoine</h3>
-            <p>Comptes, tableau de bord et répartition d'actifs en un coup d'œil.</p>
-          </div>
-          <div class="carte">
-            <h3>Rapports MBRVM</h3>
-            <p>Vos rapports hebdomadaires, classés par semaine, consultables directement dans l'appli.</p>
-          </div>
-          <div class="carte">
-            <h3>100 % local</h3>
-            <p>Vos données restent sur votre appareil : aucune télémétrie, aucun compte requis.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="tarifs" id="tarifs">
-        <div class="conteneur">
-          <h2>Tarifs</h2>
-          <div class="grille-tarifs">
-            <div class="plan">
-              <span class="plan-nom">Essai gratuit</span>
-              <span class="plan-prix">0 FCFA <small>/ 7 jours</small></span>
-              <ul class="plan-liste">
-                <li>4 modes de calcul (A à D)</li>
-                <li>Jusqu'à 5 simulations sauvegardées</li>
-                <li>Aucune carte bancaire requise</li>
-              </ul>
-              <a class="bouton bouton--secondaire" href="/">Ouvrir AlphaCompanion</a>
+          <div>
+            <span class="hero-pastille">
+              <svg class="icone"><use href="#icone-verified" /></svg>
+              Optimisé pour la BRVM
+            </span>
+            <h1>Le compagnon d'investissement pour la <span>BRVM</span></h1>
+            <p class="hero-intro">
+              Calculez votre coût moyen pondéré en un instant, suivez votre patrimoine, et gardez une trace
+              de vos rapports MBRVM — le tout hors-ligne, sur votre appareil.
+            </p>
+            <div class="hero-cta">
+              <a class="clay-bouton" href="#tarifs" style="text-decoration: none; display: inline-flex; align-items: center;">
+                Commencer l'essai gratuit
+              </a>
+              <a class="bouton-verre" href="#fonctionnalites">
+                <svg class="icone"><use href="#icone-pie" /></svg>
+                Découvrir les fonctionnalités
+              </a>
             </div>
-            <div class="plan plan--premium">
-              <span class="plan-nom">Premium</span>
-              <span class="plan-prix">— <small>tarif à venir</small></span>
+            <div class="hero-note">
+              <svg class="icone"><use href="#icone-shield" /></svg>
+              <span>Local-first : confidentialité totale garantie.</span>
+            </div>
+          </div>
+
+          <div class="hero-visuel">
+            <div class="hero-visuel-lueur"></div>
+            <div class="mockup clay-carte">
+              <div class="mockup-encoche"></div>
+              <div class="mockup-stat concave">
+                <span class="mockup-stat-label">Total Patrimoine</span>
+                <span class="mockup-stat-valeur">4 250 000 FCFA</span>
+                <span class="mockup-stat-delta">
+                  <svg class="icone"><use href="#icone-trending" /></svg>
+                  +12,4 %
+                </span>
+              </div>
+              <div class="mockup-grille">
+                <div class="mockup-tuile mockup-tuile--primaire concave">
+                  <svg class="icone"><use href="#icone-calc" /></svg>
+                  <span>CMP</span>
+                </div>
+                <div class="mockup-tuile mockup-tuile--secondaire concave">
+                  <svg class="icone"><use href="#icone-history" /></svg>
+                  <span>Historique</span>
+                </div>
+              </div>
+              <div class="mockup-bas">
+                <svg class="icone"><use href="#icone-wallet" /></svg>
+              </div>
+            </div>
+            <span class="deco-flottante deco-flottante--1 flotte"><svg class="icone"><use href="#icone-database" /></svg></span>
+            <span class="deco-flottante deco-flottante--2 flotte"><svg class="icone"><use href="#icone-coins" /></svg></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="fonctionnalites">
+        <div class="conteneur">
+          <div class="section-entete">
+            <h2>Pourquoi choisir <span>AlphaCompanion</span> ?</h2>
+            <p>Une suite d'outils conçue spécifiquement pour l'investisseur BRVM.</p>
+          </div>
+          <div class="grille-fonctionnalites">
+            <div class="carte-fonctionnalite clay-carte">
+              <span class="fonctionnalite-icone fonctionnalite-icone--1"><svg class="icone"><use href="#icone-calc" /></svg></span>
+              <h3>Companion CMP</h3>
+              <p>4 modes de calcul (A à D), profils de frais et TVA inclus, jusqu'à 5 simulations sauvegardées.</p>
+            </div>
+            <div class="carte-fonctionnalite clay-carte">
+              <span class="fonctionnalite-icone fonctionnalite-icone--2"><svg class="icone"><use href="#icone-pie" /></svg></span>
+              <h3>Patrimoine</h3>
+              <p>Comptes, tableau de bord et répartition d'actifs en un coup d'œil.</p>
+            </div>
+            <div class="carte-fonctionnalite clay-carte">
+              <span class="fonctionnalite-icone fonctionnalite-icone--3"><svg class="icone"><use href="#icone-doc" /></svg></span>
+              <h3>Rapports MBRVM</h3>
+              <p>Vos rapports hebdomadaires, classés par semaine, consultables directement dans l'appli.</p>
+            </div>
+            <div class="carte-fonctionnalite clay-carte">
+              <span class="fonctionnalite-icone fonctionnalite-icone--4"><svg class="icone"><use href="#icone-lock" /></svg></span>
+              <h3>100 % local</h3>
+              <p>Vos données restent sur votre appareil : aucune télémétrie, aucun compte requis.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tarifs" id="tarifs">
+        <div class="conteneur">
+          <div class="section-entete">
+            <h2>Tarifs</h2>
+            <p>Une structure transparente, sans frais cachés ni abonnement forcé.</p>
+          </div>
+          <div class="grille-tarifs">
+            <div class="plan clay-carte">
+              <div class="plan-entete">
+                <div>
+                  <div class="plan-nom">Essai gratuit</div>
+                  <div class="plan-sous-titre">Accès découverte</div>
+                </div>
+                <div class="plan-prix">
+                  <span class="plan-prix-montant">0</span>
+                  <span class="plan-prix-devise">FCFA</span>
+                </div>
+              </div>
+              <div class="plan-separateur"></div>
               <ul class="plan-liste">
-                <li>Tous les modes débloqués en continu</li>
-                <li>5 simulations sauvegardées en permanence</li>
-                <li>Licence valable hors-ligne, sans abonnement récurrent</li>
+                <li><svg class="icone"><use href="#icone-check" /></svg> 7 jours d'essai complet</li>
+                <li><svg class="icone"><use href="#icone-check" /></svg> 4 modes de calcul (A à D)</li>
+                <li><svg class="icone"><use href="#icone-check" /></svg> Jusqu'à 5 simulations sauvegardées</li>
               </ul>
-              <a class="bouton bouton--primaire" href="#" data-lien-paiement-todo>Acheter une licence</a>
+              <a class="plan-cta plan-cta--secondaire" href="/">Ouvrir AlphaCompanion</a>
+            </div>
+
+            <div class="plan clay-carte plan--premium">
+              <span class="plan-badge">Recommandé</span>
+              <div class="plan-entete">
+                <div>
+                  <div class="plan-nom">Premium</div>
+                  <div class="plan-sous-titre">Licence hors-ligne</div>
+                </div>
+                <div class="plan-prix">
+                  <span class="plan-prix-montant">—</span>
+                  <span class="plan-prix-devise">tarif à venir</span>
+                </div>
+              </div>
+              <div class="plan-separateur"></div>
+              <ul class="plan-liste">
+                <li><svg class="icone"><use href="#icone-check" /></svg> Tous les modes débloqués en continu</li>
+                <li><svg class="icone"><use href="#icone-check" /></svg> 5 simulations sauvegardées en permanence</li>
+                <li><svg class="icone"><use href="#icone-check" /></svg> Licence valable hors-ligne, sans abonnement récurrent</li>
+              </ul>
+              <a class="plan-cta clay-bouton" href="#" data-lien-paiement-todo style="text-decoration: none; display: flex; align-items: center; justify-content: center;">
+                Acheter une licence
+              </a>
               <p class="mention-todo">
                 TODO : brancher le lien de paiement CinetPay une fois le compte marchand validé.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="conteneur">
+          <div class="manifeste clay-carte">
+            <div class="manifeste-visuel">
+              <svg class="icone"><use href="#icone-shield" /></svg>
+            </div>
+            <div class="manifeste-texte">
+              <h2>Manifeste local-first</h2>
+              <p>
+                Chez AlphaCompanion, vos données financières sont sacrées. C'est pourquoi l'application
+                fonctionne entièrement sur votre appareil : vos calculs, vos profits et votre patrimoine ne
+                transitent jamais par un serveur.
+              </p>
+              <p>C'est la garantie d'une confidentialité absolue et d'une réactivité sans faille, même sans connexion internet.</p>
             </div>
           </div>
         </div>
@@ -90,8 +212,20 @@
 
     <footer class="pied">
       <div class="conteneur">
-        <p>AlphaCompanion — application locale, aucune donnée transmise à un serveur.</p>
+        <div>
+          <div class="pied-marque">AlphaCompanion</div>
+          <p class="pied-tagline">Application locale, aucune donnée transmise à un serveur.</p>
+        </div>
+        <div class="pied-liens">
+          <a href="/">Ouvrir l'application</a>
+        </div>
       </div>
     </footer>
+
+    <script>
+      window.addEventListener('scroll', () => {
+        document.getElementById('entete').classList.toggle('entete--scrolled', window.scrollY > 20)
+      })
+    </script>
   </body>
 </html>
