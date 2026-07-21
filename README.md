@@ -21,5 +21,8 @@ suffit de pointer vers ce dossier `site-vitrine/`, aucune commande de build n'es
    `node tools/generate-license.mjs --cle-privee <chemin> --duree <ex: 1an>` (voir ce script) et
    l'envoyer par email à l'acheteur. Manuel pour l'instant ; automatisable plus tard via un webhook
    du prestataire de paiement.
-4. **Lien retour vers l'app** — le bouton « Ouvrir AlphaCompanion » du plan gratuit pointe vers `/`
-   ; à ajuster selon l'URL réelle de déploiement de la PWA une fois connue.
+
+~~4. Lien retour vers l'app~~ — résolu : les boutons « Ouvrir AlphaCompanion » pointent vers
+`https://alpha-companion-i6c8.vercel.app/` (déploiement Vercel de la PWA). Si cette URL change,
+mettre à jour `index.html` (2 occurrences) et `src/features/cmp/AbonnementBanner.tsx` (qui pointe
+vers ce site vitrine, pas vers l'app — sens inverse, à ne pas confondre).
